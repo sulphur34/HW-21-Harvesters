@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 919300052369069311}
   - component: {fileID: 1946565658616940665}
   - component: {fileID: -658560192269029146}
+  - component: {fileID: 8565180002215201122}
   m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
@@ -114,9 +115,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _harvesterPrefab: {fileID: -4039750006738274135, guid: 60cd661216d153048b52227e94e502c3, type: 3}
-  _buildFlag: {fileID: 8559623477152696400}
-  _selectedParticleSystem: {fileID: 5894653248927614081}
+  _buildFlag: {fileID: 8140547699125595885}
+  _selectionParticleSystem: {fileID: 8565180002215201122}
   _resourceValue: 0
+--- !u!114 &8565180002215201122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712211144390440234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73911567eb99fdd40b0987255cce5ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectedParticleSystem: {fileID: 5894653248927614081}
 --- !u!1 &5872048878521855202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5055,21 +5069,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5006875033288559784, guid: bcdfb6bd4f7393243a74bed08071d186, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bcdfb6bd4f7393243a74bed08071d186, type: 3}
---- !u!4 &3417873995646047522 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2079713227950723546, guid: bcdfb6bd4f7393243a74bed08071d186, type: 3}
+--- !u!1 &2604605499055230872 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1699951104648760160, guid: bcdfb6bd4f7393243a74bed08071d186, type: 3}
   m_PrefabInstance: {fileID: 3725068855084057848}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8559623477152696400 stripped
+--- !u!114 &8140547699125595885
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5006875033288559784, guid: bcdfb6bd4f7393243a74bed08071d186, type: 3}
-  m_PrefabInstance: {fileID: 3725068855084057848}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2604605499055230872}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9df5a9c57f4d22e41a02512dbebfc969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &3417873995646047522 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2079713227950723546, guid: bcdfb6bd4f7393243a74bed08071d186, type: 3}
+  m_PrefabInstance: {fileID: 3725068855084057848}
+  m_PrefabAsset: {fileID: 0}

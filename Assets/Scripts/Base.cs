@@ -2,36 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Base : MonoBehaviour
 {
     [SerializeField] private Harvester _harvesterPrefab;
     [SerializeField] private Flag _buildFlag;
-    [SerializeField] private ParticleSystem _selectedParticleSystem;
+    [SerializeField] private SelectionParticleSystem _selectionParticleSystem;
     [SerializeField] private float _resourceValue;
 
     private Queue<Harvester> _freeHarvesters;
     private float _buildHarvesterCost = 3;
     private float _buildBaseCost = 5;
     private Transform _transform;
-    private float _flagOffsetPosition = 3f;
     private Coroutine _operateCoroutine;
     private Coroutine _collectResourceCoroutine;
     private Coroutine _buildBaseCoroutine;
-
-    public bool IsFlagActivated => _buildFlag.gameObject.activeSelf;
-
-    public UnityAction BaseSelected;
-    public UnityAction BaseDeselected;
+    
+    public Flag BuildFlag => _buildFlag;
+    public SelectionParticleSystem SelectionParticleSystem => _selectionParticleSystem;
 
     private void Awake()
     {
         _transform = transform;
         _freeHarvesters = new Queue<Harvester>();
         StartCoroutine(Operate());
-        BaseSelected += OnBaseSelected;
-        BaseDeselected += OnBaseDeselected;
     }
 
     private void OnDisable()
@@ -53,30 +47,7 @@ public class Base : MonoBehaviour
     {
         harvester.SetOwner(this);
         _freeHarvesters.Enqueue(harvester);
-    }
-
-    public void ActivateFlag(Vector3 position)
-    {
-        _buildFlag.enabled = true;
-        _buildFlag.gameObject.SetActive(true);
-        MoveFlag(position);
-    }
-
-    public void MoveFlag(Vector3 position)
-    {
-        Vector3 flagPosition = new Vector3(position.x, position.y + _flagOffsetPosition, position.z);
-        _buildFlag.transform.position = flagPosition;
-    }
-
-    private void OnBaseSelected()
-    {
-        _selectedParticleSystem.Play();
-    }
-
-    private void OnBaseDeselected()
-    {
-        _selectedParticleSystem.Stop();
-    }
+    }      
 
     private IEnumerator Operate()
     {

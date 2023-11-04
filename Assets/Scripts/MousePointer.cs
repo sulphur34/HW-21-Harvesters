@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Controls : MonoBehaviour
+public class MousePointer : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _pointingOnLayer;
@@ -22,22 +22,22 @@ public class Controls : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit selectHit, Mathf.Infinity, _selectableLayer))
             {
-                _selectedBase?.BaseDeselected.Invoke();
+                _selectedBase?.SelectionParticleSystem.BaseDeselected.Invoke();
                 _selectedBase = selectHit.collider.gameObject.GetComponent<Base>();
-                _selectedBase.BaseSelected.Invoke();
+                _selectedBase.SelectionParticleSystem.BaseSelected.Invoke();
             }
             else if (_selectedBase != null && Physics.Raycast(ray, out RaycastHit pointHit, Mathf.Infinity, _pointingOnLayer))
             {
-                if (_selectedBase.IsFlagActivated)
-                    _selectedBase.MoveFlag(pointHit.point);
+                if (_selectedBase.BuildFlag.enabled)
+                    _selectedBase.BuildFlag.MoveFlag(pointHit.point);
                 else
-                    _selectedBase.ActivateFlag(pointHit.point);
+                    _selectedBase.BuildFlag.ActivateFlag(pointHit.point);
             }
             else
             {
                 if (_selectedBase != null)
                 {
-                    _selectedBase.BaseDeselected.Invoke();
+                    _selectedBase.SelectionParticleSystem.BaseDeselected.Invoke();
                     _selectedBase = null;
                 }
             }

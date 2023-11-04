@@ -404,10 +404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a659fc4fb8cf9534eaf02dc0bc0aeb6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _capacity: 20
+  _capacity: 200
   _resourcePrefab: {fileID: -5054753573988983978, guid: e57a2fe065ad7c643b144a19a2f19863, type: 3}
   _spawnZoneCollider: {fileID: 743141521}
-  _spawnDelay: 0.5
+  _spawnDelay: 0
   ResourceCollected:
     m_PersistentCalls:
       m_Calls: []
